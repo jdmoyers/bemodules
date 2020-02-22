@@ -1,32 +1,28 @@
-import addVar from './addVar';
 const conf = require('rc')('bemmodules', {
-  styleObj: 'styles',
   elementDelimiter: '-',
   modifierDelimiter: '--'
 });
 
-function bem(block, element = null, ...modifiers) {
+function bem(obj, block, element = null, ...modifiers) {
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
-  const s = conf.styleObj;
 
   const b = block;
   const e = element;
-  let cssClasses;
+
+  let cssClasses = '';
 
   if (element !== null) {
-    cssClasses = addVar(s, `${b}${ed}${e}`);
+    cssClasses += obj[`${b}${ed}${e}`];
   } else {
-    cssClasses = addVar(s, b);
+    cssClasses += obj[b];
   }
 
   for (const m of modifiers) {
-    cssClasses += ', ' + addVar(s, `${b}${ed}${e}${md}${m}`);
+    cssClasses += ' ' + obj[`${b}${ed}${e}${md}${m}`];
   }
 
-  const reactClass = `className={[${cssClasses}]}`;
-
-  return reactClass;
+  return cssClasses;
 }
 
-export default bem;
+module.exports = bem;
