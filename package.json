@@ -1,0 +1,46 @@
+{
+  "name": "bem-modules",
+  "version": "1.0.0",
+  "description": "Easily use BEM with CSS Modules in React",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "webpack",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmoyers/bem-modules.git"
+  },
+  "keywords": [
+    "BEM",
+    "CSS",
+    "Modules",
+    "React"
+  ],
+  "author": "Joshua Moyers",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdmoyers/bem-modules/issues"
+  },
+  "homepage": "https://github.com/jdmoyers/bem-modules#readme",
+  "dependencies": {
+    "rc": "^1.2.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jest": "^23.7.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^25.1.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  }
+}
