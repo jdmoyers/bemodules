@@ -77,3 +77,6 @@ An optional .bemrc file can be used to configure the delimiters for blocks and e
   "modifierDelimiter": "--"
 }
 ```
+
+####Credits & Thanks
+Special thanks to [@CoreyRo](https://github.com/coreyro) for the brainstorming session and ideas.
