@@ -1,6 +1,6 @@
 {
-  "name": "bem-modules",
-  "version": "1.0.2",
+  "name": "bemodules",
+  "version": "1.0.3",
   "description": "Easily use BEM with CSS Modules in React",
   "main": "dist/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jdmoyers/bem-modules.git"
+    "url": "git+https://github.com/jdmoyers/bemodules.git"
   },
   "keywords": [
     "BEM",
@@ -21,9 +21,9 @@
   "author": "Joshua Moyers <josh@moyers.dev> (https://moyers.dev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jdmoyers/bem-modules/issues"
+    "url": "https://github.com/jdmoyers/bemodules/issues"
   },
-  "homepage": "https://github.com/jdmoyers/bem-modules#readme",
+  "homepage": "https://github.com/jdmoyers/bemodules#readme",
   "dependencies": {
     "rc": "^1.2.8"
   },
