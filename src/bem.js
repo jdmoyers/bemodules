@@ -1,5 +1,5 @@
-const conf = require('rc')('bemmodules', {
-  elementDelimiter: '-',
+const conf = require('rc')('bem', {
+  elementDelimiter: '__',
   modifierDelimiter: '--'
 });
 
@@ -19,6 +19,9 @@ function bemOutput(cssModule, ...args) {
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
 
+  console.log('ed', ed);
+  console.log('md', md);
+
   let b, e, modifiers;
   let cssClasses = '';
 
@@ -35,7 +38,7 @@ function bemOutput(cssModule, ...args) {
     return false;
   }
 
-  if (e !== null) {
+  if (e !== null && e !== undefined) {
     if (cssModule[`${b}${ed}${e}`]) {
       cssClasses += cssModule[`${b}${ed}${e}`];
     } else {
@@ -50,7 +53,10 @@ function bemOutput(cssModule, ...args) {
   }
 
   for (const m of modifiers) {
-    const addModifier = `${b}${e !== null ? ed + e : ''}${md}${m}`;
+    const addModifier = `${b}${
+      e !== null && e !== undefined ? ed + e : ''
+    }${md}${m}`;
+
     if (cssModule[addModifier]) {
       cssClasses += ' ' + cssModule[addModifier];
     } else {
