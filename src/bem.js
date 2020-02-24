@@ -3,7 +3,12 @@ const conf = require('rc')('bemmodules', {
   modifierDelimiter: '--'
 });
 
-function bem(obj, block, element = null, ...modifiers) {
+function bemOutput(cssModule, block, element = null, ...modifiers) {
+  console.log('Module', cssModule);
+  console.log('block', block);
+  console.log('element', element);
+  console.log('modifiers', modifiers);
+
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
 
@@ -13,16 +18,33 @@ function bem(obj, block, element = null, ...modifiers) {
   let cssClasses = '';
 
   if (element !== null) {
-    cssClasses += obj[`${b}${ed}${e}`];
+    if (cssModule[`${b}${ed}${e}`]) {
+      cssClasses += cssModule[`${b}${ed}${e}`];
+    } else {
+      console.warn(
+        `Element "${element}" does not exist in the given CSS modules.`
+      );
+    }
   } else {
-    cssClasses += obj[b];
+    if (cssModule[b]) {
+      cssClasses += cssModule[b];
+    } else {
+      console.warn(`Block "${b}" does not exist in the given CSS modules.`);
+    }
   }
 
   for (const m of modifiers) {
-    cssClasses += ' ' + obj[`${b}${ed}${e}${md}${m}`];
+    if (cssModule[`${b}${ed}${e}${md}${m}`]) {
+      cssClasses += ' ' + cssModule[`${b}${ed}${e}${md}${m}`];
+    } else {
+      console.warn(`Modifier "${m}" does not exist in the given CSS modules.`);
+    }
   }
 
   return cssClasses;
 }
 
-module.exports = bem;
+const bem = (cssModule, ...params) =>
+  bemOutput.bind(null, cssModule, ...params);
+
+export default bem;
