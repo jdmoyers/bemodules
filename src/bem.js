@@ -3,27 +3,31 @@ const conf = require('rc')('bemmodules', {
   modifierDelimiter: '--'
 });
 
-function bemOutput(cssModule, block, element = null, ...modifiers) {
-  console.log('Module', cssModule);
-  console.log('block', block);
-  console.log('element', element);
-  console.log('modifiers', modifiers);
-
+function bemOutput(cssModule, ...args) {
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
 
-  const b = block;
-  const e = element;
-
+  let b, e, modifiers;
   let cssClasses = '';
 
-  if (element !== null) {
+  if (typeof args[0] === 'string') {
+    b = args[0];
+    e = args[1];
+    modifiers = args.slice(2, args.length);
+  } else if (typeof args[0] === 'object') {
+    b = args[0].block;
+    e = args[0].element;
+    modifiers = args[0].modifiers;
+  } else {
+    console.error('Invalid parameter type');
+    return false;
+  }
+
+  if (e !== null) {
     if (cssModule[`${b}${ed}${e}`]) {
       cssClasses += cssModule[`${b}${ed}${e}`];
     } else {
-      console.warn(
-        `Element "${element}" does not exist in the given CSS modules.`
-      );
+      console.warn(`Element "${e}" does not exist in the given CSS modules.`);
     }
   } else {
     if (cssModule[b]) {
