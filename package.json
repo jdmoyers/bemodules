@@ -1,6 +1,6 @@
 {
   "name": "bem-modules",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Easily use BEM with CSS Modules in React",
   "main": "dist/index.js",
   "scripts": {
@@ -42,5 +42,8 @@
     "jest": "^25.1.0",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
