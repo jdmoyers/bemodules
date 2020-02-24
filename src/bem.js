@@ -19,9 +19,6 @@ function bemOutput(cssModule, ...args) {
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
 
-  console.log('ed', ed);
-  console.log('md', md);
-
   let b, e, modifiers;
   let cssClasses = '';
 
