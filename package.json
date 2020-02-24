@@ -18,7 +18,7 @@
     "Modules",
     "React"
   ],
-  "author": "Joshua Moyers",
+  "author": "Joshua Moyers <josh@moyers.dev> (https://moyers.dev)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jdmoyers/bem-modules/issues"
