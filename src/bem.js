@@ -3,6 +3,18 @@ const conf = require('rc')('bemmodules', {
   modifierDelimiter: '--'
 });
 
+/**
+ * Function for returning BEM class names for CSS Modules in React
+ * @param {object} cssModule Style object imported from CSS Modules
+ * @param {object | ...string} args Object or parameters.
+ * @param {string} args.block Block selector
+ * @param {string | null} args.element Element selector
+ * @param {string[]} args.modifiers Array of modifier selectors
+ * @param {string} args[0] Block selector
+ * @param {string} args[1] Element selector
+ * @param {...string} args[...] Modifier selectors
+ * @returns {string} Class names found in passed cssModule object
+ */
 function bemOutput(cssModule, ...args) {
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
@@ -38,8 +50,9 @@ function bemOutput(cssModule, ...args) {
   }
 
   for (const m of modifiers) {
-    if (cssModule[`${b}${ed}${e}${md}${m}`]) {
-      cssClasses += ' ' + cssModule[`${b}${ed}${e}${md}${m}`];
+    const addModifier = `${b}${e !== null ? ed + e : ''}${md}${m}`;
+    if (cssModule[addModifier]) {
+      cssClasses += ' ' + cssModule[addModifier];
     } else {
       console.warn(`Modifier "${m}" does not exist in the given CSS modules.`);
     }
