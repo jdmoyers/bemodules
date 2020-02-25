@@ -14,6 +14,8 @@ Import bem, then configure the CSS Modules object containing BEM CSS.
 import React from 'react';
 import styles from './Human.module.css';
 import bem from 'bem-modules';
+
+const b = bem(styles);
 ```
 
 ### Passing individual parameters
