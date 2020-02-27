@@ -47,13 +47,13 @@ export default Human;
 **b('human', null, 'tall', 'scrawny') output:**
 
 ```
-humanClass Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
+Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
 ```
 
 **b('human', 'head', 'round', 'wide') output:**
 
 ```
-humanHeadClass Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
+Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
 ```
 
 ### Passing an object
@@ -98,7 +98,7 @@ Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
 **b(humanHeadClass) output:**
 
 ```
-humanHeadClass Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
+Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
 ```
 
 ## Advanced configuration
