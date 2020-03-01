@@ -17,7 +17,7 @@ Import bem, then configure the CSS Modules object containing BEM CSS.
 ```jsx
 import React from 'react';
 import styles from './Human.module.css';
-import bem from 'bem-modules';
+import bem from 'bemodules';
 
 const b = bem(styles);
 ```
@@ -29,7 +29,7 @@ BEM classes can be returned by passing parameters as shown below. The first para
 ```jsx
 import React from 'react';
 import styles from './Human.module.css';
-import bem from 'bem-modules';
+import bem from 'bemodules';
 
 const b = bem(styles);
 
@@ -63,7 +63,7 @@ BEM classes can be returned by passing an object as shown below. The "block" pro
 ```jsx
 import React from 'react';
 import styles from './Human.module.css';
-import bem from 'bem-modules';
+import bem from 'bemodules';
 
 const b = bem(styles);
 
