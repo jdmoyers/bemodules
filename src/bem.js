@@ -6,6 +6,8 @@ const conf = {
 /**
  * Function for returning BEM class names for CSS Modules in React
  * @param {object} cssModule Style object imported from CSS Modules
+ * @param {string | null} eDelimiter Delimiter between blocks and elements
+ * @param {string | null} mDelimiter Delimiter between elements and modifiers
  * @param {object | ...string} args Object or parameters.
  * @param {string} args.block Block selector
  * @param {string | null} args.element Element selector
