@@ -1,7 +1,20 @@
-const conf = require('rc')('bem', {
+const conf = {
   elementDelimiter: '__',
   modifierDelimiter: '--'
-});
+};
+
+const elementDelimiterOverride =
+  process.env.REACT_APP_BEMODULES_ELEMENT_DELIMITER;
+const modifierDelimiterOverride =
+  process.env.REACT_APP_BEMODULES_MODIFIER_DELIMITER;
+
+if (elementDelimiterOverride !== undefined) {
+  conf.elementDelimiter = elementDelimiterOverride;
+}
+
+if (modifierDelimiterOverride !== undefined) {
+  conf.modifierDelimiter = modifierDelimiterOverride;
+}
 
 /**
  * Function for returning BEM class names for CSS Modules in React

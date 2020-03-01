@@ -8,6 +8,8 @@ bemodules will take an object or list of parameters containing the "block", "ele
 
 **Disclaimer:** This was built and tested with [create-react-app](https://create-react-app.dev/) in mind, and has not been tested in any other environment.
 
+---
+
 ## Usage
 
 ### Import and configure
@@ -44,13 +46,13 @@ function Human() {
 export default Human;
 ```
 
-**b('human', null, 'tall', 'scrawny') output:**
+**Example b('human', null, 'tall', 'scrawny') output:**
 
 ```
 Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
 ```
 
-**b('human', 'head', 'round', 'wide') output:**
+**Example b('human', 'head', 'round', 'wide') output:**
 
 ```
 Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
@@ -89,28 +91,35 @@ function Human() {
 export default Human;
 ```
 
-**b(humanClass) output:**
+**Example b(humanClass) output:**
 
 ```
 Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
 ```
 
-**b(humanHeadClass) output:**
+**Example b(humanHeadClass) output:**
 
 ```
 Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
 ```
 
+---
+
 ## Advanced configuration
 
-An optional .bemrc file can be used to configure the delimiters for blocks and elements.
+To configure or change the delimiters for blocks and elements, add the following [React environment variables](https://create-react-app.dev/docs/adding-custom-environment-variables/) to your React application:
 
-```json
-{
-  "elementDelimiter": "__",
-  "modifierDelimiter": "--"
-}
+- REACT_APP_BEMODULES_ELEMENT_DELIMITER
+- REACT_APP_BEMODULES_MODIFIER_DELIMITER
+
+**.env file example:**
+
 ```
+REACT_APP_BEMODULES_ELEMENT_DELIMITER=__
+REACT_APP_BEMODULES_MODIFIER_DELIMITER=--
+```
+
+---
 
 #### Credits & Thanks
 

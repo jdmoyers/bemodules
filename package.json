@@ -1,6 +1,6 @@
 {
   "name": "bemodules",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "Easily use BEM with CSS Modules in React",
   "main": "dist/index.js",
   "scripts": {
@@ -24,9 +24,6 @@
     "url": "https://github.com/jdmoyers/bemodules/issues"
   },
   "homepage": "https://github.com/jdmoyers/bemodules#readme",
-  "dependencies": {
-    "rc": "^1.2.8"
-  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
