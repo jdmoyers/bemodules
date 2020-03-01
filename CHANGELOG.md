@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
-## [2.0.0] - 2020-02-29
+## [2.0.0] - 2020-03-01
 
 ### Added
 
@@ -12,7 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
 ### Changed
 
-- Method for changing and customizing BEM delimiters changed from broken rc format to React environment variables
+- Method for changing and customizing BEM delimiters changed from broken rc format to configuration parameters
+- README cleaned up
 
 ### Fixed
 

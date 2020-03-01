@@ -3,19 +3,6 @@ const conf = {
   modifierDelimiter: '--'
 };
 
-const elementDelimiterOverride =
-  process.env.REACT_APP_BEMODULES_ELEMENT_DELIMITER;
-const modifierDelimiterOverride =
-  process.env.REACT_APP_BEMODULES_MODIFIER_DELIMITER;
-
-if (elementDelimiterOverride !== undefined) {
-  conf.elementDelimiter = elementDelimiterOverride;
-}
-
-if (modifierDelimiterOverride !== undefined) {
-  conf.modifierDelimiter = modifierDelimiterOverride;
-}
-
 /**
  * Function for returning BEM class names for CSS Modules in React
  * @param {object} cssModule Style object imported from CSS Modules
@@ -28,9 +15,17 @@ if (modifierDelimiterOverride !== undefined) {
  * @param {...string} args[...] Modifier selectors
  * @returns {string} Class names found in passed cssModule object
  */
-function bemOutput(cssModule, ...args) {
+function bemOutput(cssModule, eDelimiter, mDelimiter, ...args) {
   const ed = conf.elementDelimiter;
   const md = conf.modifierDelimiter;
+
+  if (eDelimiter !== null && typeof eDelimiter === 'string') {
+    conf.elementDelimiter = eDelimiter;
+  }
+
+  if (mDelimiter !== null && typeof mDelimiter === 'string') {
+    conf.modifierDelimiter = mDelimiter;
+  }
 
   let b, e, modifiers;
   let cssClasses = '';
@@ -77,7 +72,7 @@ function bemOutput(cssModule, ...args) {
   return cssClasses;
 }
 
-const bem = (cssModule, ...params) =>
-  bemOutput.bind(null, cssModule, ...params);
+const bem = (cssModule, e, m, ...params) =>
+  bemOutput.bind(null, cssModule, e, m, ...params);
 
 export default bem;

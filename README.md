@@ -10,19 +10,55 @@ bemodules will take an object or list of parameters containing the "block", "ele
 
 ---
 
-## Usage
+## Install
 
-### Import and configure
+bemodules can easily be installed via NPM or Yarn.
+
+#### NPM:
+
+```node
+npm -i bemodules -D
+```
+
+#### Yarn:
+
+```node
+yarn add bemodules --dev
+```
+
+---
+
+## Import and configure
 
 Import bem, then configure the CSS Modules object containing BEM CSS.
+
+### Default settings:
+
+```jsx
+import React from 'react';
+import styles from './Human.module.css';
+import bem from 'bemodules'; // Importing bemodules
+
+const b = bem(styles); // Importing the 'styles' object created by CSS Modules
+```
+
+### Configure delimiters:
+
+In addition to the style object, bemodules also accepts optional parameters to change the delimiters for blocks and modules. By default, bemodules is configured to use the standard [BEM methodology naming](http://getbem.com/naming/), which is two underscores (\_\_) between block and element, and two dashes (--) between element and modifier.
+
+The example below will set the element delimiter to a single dash (-), and the modifier delimiter to two dashes (--).
 
 ```jsx
 import React from 'react';
 import styles from './Human.module.css';
 import bem from 'bemodules';
 
-const b = bem(styles);
+const b = bem(styles, '-', '--'); // Configuring delimiters
 ```
+
+---
+
+## Usage
 
 ### Passing individual parameters
 
@@ -37,6 +73,7 @@ const b = bem(styles);
 
 function Human() {
   return (
+    // Applying bemodules to className
     <div className={b('human', null, 'tall', 'scrawny')}>
       <div className={b('human', 'head', 'round', 'wide')}>Content here...</div>
     </div>
@@ -46,17 +83,21 @@ function Human() {
 export default Human;
 ```
 
-**Example b('human', null, 'tall', 'scrawny') output:**
+#### Example breakdown: `b('human', null, 'tall', 'scrawny')`
 
-```
-Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
-```
+- BEM Equivalent:  
+  `human human--tall human--scrawny`
 
-**Example b('human', 'head', 'round', 'wide') output:**
+- Output:  
+  `Human_human__1TaCO Human_human--tall__QrbVX`
 
-```
-Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
-```
+#### Example breakdown: `b('human', 'head', 'round', 'wide')`
+
+- BEM Equivalent:  
+  `human__head human__head--round human__head--wide`
+
+- Output:  
+  `Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX`
 
 ### Passing an object
 
@@ -91,36 +132,8 @@ function Human() {
 export default Human;
 ```
 
-**Example b(humanClass) output:**
-
-```
-Human_human__1TaCO Human_human--tall__QrbVX Human_human--scrawny__2r8iF
-```
-
-**Example b(humanHeadClass) output:**
-
-```
-Human_human__head__3F4fG Human_human__head--round__2Y1YP Human_human__head--wide__2ZJFX
-```
-
 ---
 
-## Advanced configuration
-
-To configure or change the delimiters for blocks and elements, add the following [React environment variables](https://create-react-app.dev/docs/adding-custom-environment-variables/) to your React application:
-
-- REACT_APP_BEMODULES_ELEMENT_DELIMITER
-- REACT_APP_BEMODULES_MODIFIER_DELIMITER
-
-**.env file example:**
-
-```
-REACT_APP_BEMODULES_ELEMENT_DELIMITER=__
-REACT_APP_BEMODULES_MODIFIER_DELIMITER=--
-```
-
----
-
-#### Credits & Thanks
+## Credits & Thanks
 
 Special thanks to [@CoreyRo](https://github.com/coreyro) for the brainstorming session and ideas.
